@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "shopboi"
+    }
+  },
+  "defaultProject": "shopboi",
+  "cli": {
+    "analytics": "4455781a-05d0-4510-99a4-8ee7d5064193"
+  }
 }

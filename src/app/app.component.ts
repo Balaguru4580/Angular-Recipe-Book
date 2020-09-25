@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shopboi';
+
+  toggledata: string = "r";
+
+  toggle(mode: string)
+  {
+    this.toggledata = mode;
+  }
+  
 }
