@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn btn-success">New Recipe Boi</div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-recipe-item (focusdata)="rebroadcast($event)" *ngFor="let recipe of recipes" [item_recipe]="recipe" ></app-recipe-item>
+    </div>
+</div>
+
