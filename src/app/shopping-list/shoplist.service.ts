@@ -5,9 +5,6 @@ import {Ingredient} from '../shared/ingredient.model';
   providedIn: 'root'
 })
 export class ShoplistService {
-
-  ingredientTube = new EventEmitter<{name: string, amount: number}>();
-
   ingredientChanges =  new EventEmitter<Ingredient[]>();
 
   
@@ -16,26 +13,13 @@ export class ShoplistService {
     new Ingredient('Chimken', 20),
   ];
 
-  
-  temp: Ingredient;
-
-
-
-  deliver(ingredient)
-  {
-    this.temp = new Ingredient(ingredient.name, ingredient.amount);
-    this.ingredients.push(this.temp);
-    this.ingredientChanges.emit(this.ingredients.slice());
-  }
-
   accessList(){
     return this.ingredients.slice();
   }
 
-  constructor() { }
 
   addIngredients(local_name: string, local_amount: number){
-
-    this.ingredientTube.emit({name: local_name, amount: local_amount});
+    this.ingredients.push(new Ingredient(local_name, local_amount));
+    this.ingredientChanges.emit(this.ingredients.slice());
   }
 }

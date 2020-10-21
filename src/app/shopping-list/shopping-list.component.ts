@@ -9,19 +9,17 @@ import { ShopEditComponent } from './shop-edit/shop-edit.component';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-
-  temp: Ingredient[];
-
   
-  publicIngredients: Ingredient[] = this.shoppee.accessList();
+  publicIngredients: Ingredient[];
   constructor(private shoppee: ShoplistService) { }
 
   ngOnInit(): void {
-    this.temp = this.shoppee.accessList();
+    this.publicIngredients = this.shoppee.accessList();
      
     this.shoppee.ingredientChanges.subscribe(
       (y: Ingredient[]) => {
-      this.temp = y;
+      this.publicIngredients = y;
+      console.log(this.publicIngredients);
       }
     )
   }
