@@ -8,11 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'shopboi';
 
-  toggledata: string = "r";
+  toggledata: string = "reci";
 
   toggle(mode: string)
   {
     this.toggledata = mode;
+    console.log("Changed to " + this.toggledata);
   }
   
 }

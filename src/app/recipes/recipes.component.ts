@@ -27,7 +27,7 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(){
     this.recipepull.recipeFocus.subscribe(
-      (x: {details: boolean, recipes: Recipe}) =>  this.focuser(x) ) //OBJECT CAME ALL MESSED UP!
+      (x: {details: boolean, recipes: Recipe}) =>  this.focuser(x) ) 
     
   }
 

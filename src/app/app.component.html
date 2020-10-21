@@ -1,11 +1,12 @@
 <app-headcomp (togglevent) = "toggle($event)"></app-headcomp>
 <div class="container">
     <div class="row">
-        <div class="col-md-12" *ngIf="toggledata == 'r';">
+        <div class="col-md-12" *ngIf="toggledata == 'reci'">
             <app-recipes></app-recipes>
         </div>
-        <div class="col-md-12" *ngIf="toggledata == 'sl'">
+        <div class="col-md-12" *ngIf="toggledata != 'reci'">
                 <app-shopping-list></app-shopping-list>
         </div>
     </div>
 </div>
+ 

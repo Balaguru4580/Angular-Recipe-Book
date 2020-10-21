@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { ShoplistService } from '../shoplist.service';
 
 @Component({
   selector: 'app-shop-edit',
@@ -11,15 +12,16 @@ export class ShopEditComponent implements OnInit {
 
   @ViewChild ('amountInput', {static: true}) local_amount: ElementRef;
 
-  @Output() ingredientTube = new EventEmitter<{name: string, amount: number}>();
 
-  constructor() { }
+  constructor(private shopper: ShoplistService) { }
 
-  addIngredients(){
-
-    this.ingredientTube.emit({name: this.local_name.nativeElement.value, amount: this.local_amount.nativeElement.value});
-  }
+  
   ngOnInit(): void {
   }
 
+  addIngredients(){
+    let x = this.local_name.nativeElement.value;
+    let y  = this.local_amount.nativeElement.value;
+    this.shopper.addIngredients(x,y);
+}
 }

@@ -7,7 +7,7 @@ import {EventEmitter} from '@angular/core';
 })
 export class RecipeService {
 
-  recipeFocus = new EventEmitter<{detail: boolean, recipe: Recipe}>();
+  recipeFocus = new EventEmitter<{detail: boolean, recipe: Recipe }>();
 
  private recipes: Recipe[] = [
     new Recipe("Sambar", "Basic indian JUICE", "https://previews.123rf.com/images/indianfoodimages/indianfoodimages1811/indianfoodimages181100940/111855004-drumstick-curry-or-shevga-sheng-bhaji-or-south-indian-sambar-served-in-a-bowl-over-moody-background-.jpg")
