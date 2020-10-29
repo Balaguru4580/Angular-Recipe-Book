@@ -19,7 +19,6 @@ export class ShoppingListComponent implements OnInit {
     this.shoppee.ingredientChanges.subscribe(
       (y: Ingredient[]) => {
       this.publicIngredients = y;
-      console.log(this.publicIngredients);
       }
     )
   }
