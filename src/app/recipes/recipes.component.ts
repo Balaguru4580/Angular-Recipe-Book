@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from './recipe-list/recipe.model';
-import { RecipeService } from './recipe.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipes',
@@ -10,25 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor(private recipepull: RecipeService) { }
 
-
-  Recipelist_final: Recipe;
-  focus: boolean = false;
-
-
-  focuser(duo)
-  {
-    this.focus = duo.detail;
-    this.Recipelist_final = duo.recipe;
-
-  }
-
-
-  ngOnInit(){
-    this.recipepull.recipeFocus.subscribe(
-      (x: {details: boolean, recipes: Recipe}) =>  this.focuser(x) ) 
-    
+  ngOnInit() {
   }
 
 }

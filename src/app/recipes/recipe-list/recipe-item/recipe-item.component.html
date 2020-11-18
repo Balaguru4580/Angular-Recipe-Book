@@ -1,7 +1,7 @@
-<a href="#" class="list-group-item clearfix" (click) = "detailer()">
+<a [routerLink] = "[id]" routerLinkActive = "active" class="list-group-item clearfix">
     <div class="pull-left">
-        <h4 class="list-group-item heading">{{recipe.recipe__name}}</h4>
-        <p class="list-group-item text">{{recipe.recipe__description}}</p>
+        <h4 class="list-group-item-heading">{{recipe.recipe__name}}</h4>
+        <p class="list-group-item-text">{{recipe.recipe__description}}</p>
     </div>
     <span class="pull-right">
         <img src="{{recipe.recipe__imagePath}}" alt="Bruh" class= "img-responsive" style="max-height: 50px;">
