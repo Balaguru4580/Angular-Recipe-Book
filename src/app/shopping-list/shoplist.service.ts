@@ -9,7 +9,7 @@ export class ShoplistService {
 
   
   private ingredients: Ingredient[] = [
-    new Ingredient('Tomato', 10),
+    new Ingredient('Brimstone', 10),
     new Ingredient('Chimken', 20),
   ];
 

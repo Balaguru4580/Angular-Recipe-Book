@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Recipe} from './recipe-list/recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
-import {ShoplistService} from '../shopping-list/shoplist.service'
-import { Subject } from 'rxjs';
+import {ShoplistService} from '../shopping-list/shoplist.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +10,13 @@ export class RecipeService {
 
 
  private recipes: Recipe[] = [
-    new Recipe("Sambar", "Basic indian JUICE", "https://previews.123rf.com/images/indianfoodimages/indianfoodimages1811/indianfoodimages181100940/111855004-drumstick-curry-or-shevga-sheng-bhaji-or-south-indian-sambar-served-in-a-bowl-over-moody-background-.jpg",[
-      new Ingredient('Drumstix', 2),
-      new Ingredient('Sambar powder lol', 1)
+    new Recipe("Angular", "Google's Framework", "https://cdn.worldvectorlogo.com/logos/angular-icon.svg",[
+      new Ingredient('Corporate level', 2),
+      new Ingredient('High performance', 1)
     ]),
-    new Recipe("Biriyani", "YUMMY RICE YAY", "https://c.ndtvimg.com/2018-10/ohqcobr_handi-biryani_625x300_08_October_18.jpg",[
-      new Ingredient('Chicki', 2),
-      new Ingredient('Biriyani masoula', 1)
+    new Recipe("React", "Facebook Frame", "https://www.freecodecamp.org/news/content/images/size/w2000/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png",[
+      new Ingredient('Library based', 2),
+      new Ingredient('Much smaller and easier', 1)
     ])
   ];
 
