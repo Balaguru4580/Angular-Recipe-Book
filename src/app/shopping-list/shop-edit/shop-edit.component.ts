@@ -1,4 +1,8 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoplistService } from '../shoplist.service';
 
 @Component({
@@ -6,22 +10,48 @@ import { ShoplistService } from '../shoplist.service';
   templateUrl: './shop-edit.component.html',
   styleUrls: ['./shop-edit.component.css']
 })
-export class ShopEditComponent implements OnInit {
+export class ShopEditComponent implements OnInit, OnDestroy {
 
-  @ViewChild ('nameInput', {static: true}) local_name: ElementRef;
+  @ViewChild('formRef', { static: false }) shoplistForm: NgForm;
 
-  @ViewChild ('amountInput', {static: true}) local_amount: ElementRef;
-
+  subscription: Subscription;
+  editMode: boolean = false;
+  editModeIndex: number;
+  editedItem: Ingredient;
 
   constructor(private shopper: ShoplistService) { }
 
-  
+
   ngOnInit(): void {
+    this.subscription = this.shopper.editStart.subscribe((index: number) => {
+      this.editMode = true;
+      this.editModeIndex = index;
+      this.editedItem = this.shopper.getIngredient(index);
+      this.shoplistForm.setValue({ name: this.editedItem.name, amount: this.editedItem.amount })
+
+    })
+  };
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  addIngredients(){
-    let x = this.local_name.nativeElement.value;
-    let y  = this.local_amount.nativeElement.value;
-    this.shopper.addIngredients(x,y);
-}
+  onAddItem(form: NgForm) {
+    const value = form.value;
+    const newIngredient = new Ingredient(value.name, value.amount);
+
+    if (this.editMode) {
+      this.shopper.updateIngredient(this.editModeIndex, newIngredient);
+    }
+    else { this.shopper.addIngredients(value.name, value.amount); }
+    this.editMode = false;
+    form.reset();
+  }
+
+
+  onClear(){
+    this.shoplistForm.reset();
+    this.editMode = false;
+  }
+
 }
