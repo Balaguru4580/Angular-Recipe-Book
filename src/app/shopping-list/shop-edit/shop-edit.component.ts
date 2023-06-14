@@ -16,7 +16,7 @@ export class ShopEditComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
   editMode: boolean = false;
-  editModeIndex: number;
+  selectedIndex: number;
   editedItem: Ingredient;
 
   constructor(private shopper: ShoplistService) { }
@@ -25,7 +25,7 @@ export class ShopEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.shopper.editStart.subscribe((index: number) => {
       this.editMode = true;
-      this.editModeIndex = index;
+      this.selectedIndex = index;
       this.editedItem = this.shopper.getIngredient(index);
       this.shoplistForm.setValue({ name: this.editedItem.name, amount: this.editedItem.amount })
 
@@ -41,7 +41,7 @@ export class ShopEditComponent implements OnInit, OnDestroy {
     const newIngredient = new Ingredient(value.name, value.amount);
 
     if (this.editMode) {
-      this.shopper.updateIngredient(this.editModeIndex, newIngredient);
+      this.shopper.updateIngredient(this.selectedIndex, newIngredient);
     }
     else { this.shopper.addIngredients(value.name, value.amount); }
     this.editMode = false;
@@ -52,6 +52,10 @@ export class ShopEditComponent implements OnInit, OnDestroy {
   onClear(){
     this.shoplistForm.reset();
     this.editMode = false;
+  }
+
+  onDelete(){
+    this.shopper.deleteIngredient(this.selectedIndex);
   }
 
 }

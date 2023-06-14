@@ -8,29 +8,30 @@ import { ShopEditComponent } from './shop-edit/shop-edit.component';
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit, OnDestroy {
-  
+export class ShoppingListComponent implements OnInit{
+
   publicIngredients: Ingredient[];
   constructor(private shoppee: ShoplistService) { };
-  
+
   private ingChange;
 
   ngOnInit(): void {
     this.publicIngredients = this.shoppee.accessList();
-     
+
     this.ingChange = this.shoppee.ingredientChanges.subscribe(
       (y: Ingredient[]) => {
-      this.publicIngredients = y;
+        this.publicIngredients = y;
       }
     )
   }
 
-  ngOnDestroy(): void
-  {
-    this.ingChange = this.shoppee.ingredientChanges.unsubscribe();  
-  }
+  // ngOnDestroy(): void {
+  //   if (this.shoppee && this.shoppee.ingredientChanges) {
+  //     this.ingChange = this.shoppee.ingredientChanges.unsubscribe();  //Explicit unsubscription not working
+  //   } 
+  // }
 
-  onEditItem(i: number){
+  onEditItem(i: number) {
     this.shoppee.editStart.next(i);
   }
 

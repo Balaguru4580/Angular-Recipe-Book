@@ -10,13 +10,14 @@ export class RecipeService {
 
 
  private recipes: Recipe[] = [
-    new Recipe("Angular", "Google's Framework", "https://cdn.worldvectorlogo.com/logos/angular-icon.svg",[
-      new Ingredient('Corporate level', 2),
-      new Ingredient('High performance', 1)
+    new Recipe("HotDog", "American", "https://img.freepik.com/free-vector/fast-food-sticker-design-with-hot-dog-isolated_1308-67129.jpg?w=900&t=st=1686752290~exp=1686752890~hmac=fe7e0aad5102bab5cc8003f4a4680f2a5da6011a5227740b2dffa97a79ebbdc9",[
+      new Ingredient('Bread', 1),
+      new Ingredient('Sausage', 1)
     ]),
-    new Recipe("React", "Facebook Frame", "https://www.freecodecamp.org/news/content/images/size/w2000/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png",[
-      new Ingredient('Library based', 2),
-      new Ingredient('Much smaller and easier', 1)
+    new Recipe("Biriyani", "Indian", "https://img.freepik.com/free-vector/hand-drawn-chicken-biryani_23-2148731816.jpg?w=740&t=st=1686752327~exp=1686752927~hmac=5c0f0ab9c58ce0b01b4992d8624ecbc7bf39644d8b566b38e8f3c1b4625c5c5f",[
+      new Ingredient('Rice', 1),
+      new Ingredient('Chicken', 2),
+      new Ingredient('Cloves', 3),
     ])
   ];
 

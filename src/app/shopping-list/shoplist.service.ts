@@ -10,8 +10,8 @@ export class ShoplistService {
 
   
   private ingredients: Ingredient[] = [
-    new Ingredient('Brimstone', 10),
-    new Ingredient('Chicken', 20),
+    new Ingredient('Salt', 1),
+    new Ingredient('Pepper', 1),
   ];
 
   accessList(){
@@ -31,4 +31,11 @@ export class ShoplistService {
     this.ingredients[index] = newIngredient;
     this.ingredientChanges.next(this.ingredients.slice());
   }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.ingredientChanges.next(this.ingredients.slice());
+  }
+
+
 }
