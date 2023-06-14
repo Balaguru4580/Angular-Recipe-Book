@@ -7,6 +7,7 @@
 <div class="row">
     <div class="col-xs-12">
         <h1>{{recipe.recipe__name}}</h1>
+        <h5>{{recipe.recipe__description}}</h5>
     </div>
 </div>
 
@@ -22,14 +23,12 @@
                 <li><a href="">Delete Recipe</a></li>    
             </ul>
         </div>
+        <div class="btn btn-primary" (click) = recipePass(recipe) >Add to Shopping List</div>
+            
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-12">
-        {{recipe.recipe__description}}
-    </div>
-</div>
+
 
 <div class="row">
     <div class="col-xs-12">

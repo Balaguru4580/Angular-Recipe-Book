@@ -10,7 +10,7 @@ export class RecipeService {
 
 
  private recipes: Recipe[] = [
-    new Recipe("HotDog", "American", "https://img.freepik.com/free-vector/fast-food-sticker-design-with-hot-dog-isolated_1308-67129.jpg?w=900&t=st=1686752290~exp=1686752890~hmac=fe7e0aad5102bab5cc8003f4a4680f2a5da6011a5227740b2dffa97a79ebbdc9",[
+    new Recipe("Hotdog", "American", "https://img.freepik.com/free-vector/fast-food-sticker-design-with-hot-dog-isolated_1308-67129.jpg?w=900&t=st=1686752290~exp=1686752890~hmac=fe7e0aad5102bab5cc8003f4a4680f2a5da6011a5227740b2dffa97a79ebbdc9",[
       new Ingredient('Bread', 1),
       new Ingredient('Sausage', 1)
     ]),

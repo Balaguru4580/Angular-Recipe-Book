@@ -21,6 +21,9 @@ export class RecipeDetailComponent implements OnInit {
   recipePass(recipe: Recipe) {
     this.recipepass.recipeKick(recipe);
 
+    this.router.navigate(['/shoplist']);
+
+
   }
 
 
